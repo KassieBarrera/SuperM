@@ -54,6 +54,7 @@ public class Tab2 extends Fragment {
         rvMain.setAdapter(adapter);
 
 
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tab2, container, false);
     }
