@@ -1,34 +1,33 @@
 package com.example.superm;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     private Toolbar mToolbar;
     private ViewPager mViewPager;
     private TabLayout mtabLayout;
     private TabAccesorAdapter mTabAccessorAdapter;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        gui();
        tabs();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -45,14 +44,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void tabs() {
-
-        mViewPager = findViewById(R.id.main_tabs_pager);
         mTabAccessorAdapter = new TabAccesorAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mTabAccessorAdapter);
-
         mtabLayout = findViewById(R.id.main_tab);
         mtabLayout.setupWithViewPager(mViewPager);
-
     }
 
     @Override
@@ -110,5 +105,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void gui(){
+        mViewPager = findViewById(R.id.main_tabs_pager);
+        mtabLayout = findViewById(R.id.main_tab);
+        rv = findViewById(R.id.rvMain);
+
     }
 }

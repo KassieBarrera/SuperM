@@ -7,4 +7,14 @@
     android:background="@color/primaryColor"
     tools:context=".Screen">
 
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/carritomarket"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+
 </RelativeLayout>
