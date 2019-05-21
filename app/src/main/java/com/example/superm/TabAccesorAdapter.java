@@ -34,11 +34,11 @@ class TabAccesorAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position){
         switch (position) {
             case 0:
-                return "Menu";
+                return "";
             case 1:
-                return "Tab2";
+                return "";
             case 2:
-                return "Tab3";
+                return "";
 
             default:
                 return null;
