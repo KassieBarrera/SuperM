@@ -41,6 +41,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        mtabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        mtabLayout.getTabAt(1).setIcon(R.drawable.ic_menu);
+        mtabLayout.getTabAt(2).setIcon(R.drawable.ic_descuento);
+
+
+
     }
 
     private void tabs() {

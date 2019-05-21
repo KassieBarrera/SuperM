@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class Tab2 extends Fragment {
     RecyclerView rvMain;
     private GridLayoutManager mGridLayoutMgr;
-    ImageButton panaderia;
+
 
 
     public Tab2() {
