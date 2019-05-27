@@ -1,6 +1,7 @@
 package com.example.superm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.superm.Departamentos.MyViewHolder;
+import com.example.superm.Departamentos.Panaderia;
 
-class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
+class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    String[] companyList;
+    static String[] companyList;
     Bitmap[] logoList;
 
     private Context context;
@@ -37,6 +38,7 @@ class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.logo.setImageBitmap(logoList[position]);
+
         holder.logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +47,8 @@ class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         });
         holder.name.setText(companyList[position]);
+
+
     }
 
     @Override
@@ -52,6 +56,27 @@ class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         return companyList.length;
     }
 
+public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    ImageView logo;
+    TextView name;
+    Context context;
 
+    public MyViewHolder(@NonNull View itemView) {
+        super(itemView);
+        logo = itemView.findViewById(R.id.ivLogo);
+        name = itemView.findViewById(R.id.tvCompany);
+        logo.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        context = v.getContext();
+        int position = getAdapterPosition();
+        Intent intent = new Intent(context, Panaderia.class);
+        intent.putExtra("nombre", companyList[position]);
+        context.startActivity(intent);
+        }
+    }
 }
 
